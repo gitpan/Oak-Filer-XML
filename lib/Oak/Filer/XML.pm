@@ -36,7 +36,7 @@ L<Oak::Filer::XML|Oak::Filer::XML>
 
 =over
 
-=item TYPE
+=item type
 
 file or fh, defines if it will open a file or just use a
 filehandle
@@ -76,13 +76,13 @@ sub constructor {
 	if ($args{FILENAME} && !$args{FH}) {
 		$self->set
 		  (
-		   TYPE => "file",
+		   type => "file",
 		   FILENAME => $args{FILENAME}
 		  );
 	} elsif ($args{FH} && !$args{FILENAME}) {
 		$self->set
 		  (
-		   TYPE => "fh",
+		   type => "fh",
 		   FILEHANDLE => $args{FH}
 		  );
 	} else {
@@ -199,7 +199,7 @@ __END__
 
   # To create the default filer
   require Oak::Filer::XML;
-  my $filer = new Oak::Filer::XML(TYPE => 'file', FILENAME => 'config.xml');
+  my $filer = new Oak::Filer::XML(type => 'file', FILENAME => 'config.xml');
   $filer->store(NAME=>VALUE);
   my %props = $filer->load(NAME);
 
